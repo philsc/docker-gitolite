@@ -5,4 +5,6 @@ chmod 775 /home/git/repositories
 
 su - git -c "./bin/gitolite setup -pk admin.pub"
 
+rm /home/git/admin.pub
+
 /usr/sbin/sshd -D -e
