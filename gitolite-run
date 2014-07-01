@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+su - git -c "./bin/gitolite setup -pk admin.pub"
+
+/usr/sbin/sshd -D -e

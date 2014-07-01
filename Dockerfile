@@ -5,18 +5,20 @@ RUN apt-get update
 RUN apt-get -y install openssh-server
 RUN apt-get -y install git
 
+RUN mkdir -p /var/run/sshd
+ADD sshd_config /etc/ssh/sshd_config
+
 RUN adduser --system --group --shell /bin/sh git
 ADD id_rsa.pub /home/git/admin.pub
 
 RUN su - git -c "mkdir bin"
 RUN su - git -c "git clone git://github.com/sitaramc/gitolite"
 RUN su - git -c "./gitolite/install -ln"
-RUN su - git -c "./bin/gitolite setup -pk admin.pub"
 
-RUN rm /home/git/admin.pub
+VOLUME ["/srv"]
 
-RUN mkdir /var/run/sshd
-ADD sshd_config /etc/ssh/sshd_config
+ADD gitolite-run /usr/local/bin/gitolite-run
+RUN chmod +x /usr/local/bin/gitolite-run
 
-ENTRYPOINT ["/usr/sbin/sshd", "-D"]
+ENTRYPOINT ["/usr/local/bin/gitolite-run"]
 EXPOSE 22
