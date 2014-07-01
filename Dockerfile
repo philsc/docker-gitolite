@@ -1,6 +1,8 @@
 FROM ubuntu:14.04
 MAINTAINER Philipp Schrader <philipp.schrader@gmail.com>
 
+RUN LANG=C >> /etc/profile
+
 RUN apt-get update
 RUN apt-get -y install openssh-server
 RUN apt-get -y install git
