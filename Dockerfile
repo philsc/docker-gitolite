@@ -15,7 +15,7 @@ RUN su - git -c "mkdir bin"
 RUN su - git -c "git clone git://github.com/sitaramc/gitolite"
 RUN su - git -c "./gitolite/install -ln"
 
-VOLUME ["/srv"]
+VOLUME ["/home/git/repositories"]
 
 ADD gitolite-run /usr/local/bin/gitolite-run
 RUN chmod +x /usr/local/bin/gitolite-run
