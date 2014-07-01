@@ -19,7 +19,5 @@ RUN su - git -c "./gitolite/install -ln"
 ADD gitolite-run /usr/local/bin/gitolite-run
 RUN chmod +x /usr/local/bin/gitolite-run
 
-RUN chown -R git:git /home/git/repositories
-
 ENTRYPOINT ["/usr/local/bin/gitolite-run"]
 EXPOSE 22

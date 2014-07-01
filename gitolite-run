@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+chown -R git:git /home/git/repositories
+chmod 775 /home/git/repositories
+
 su - git -c "./bin/gitolite setup -pk admin.pub"
 
 /usr/sbin/sshd -D -e
