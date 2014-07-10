@@ -1,10 +1,18 @@
 #!/usr/bin/env bash
 
-chown -R git:git /home/git/repositories
-chmod 775 /home/git/repositories
+chown -R git:git \
+    /home/git/repositories \
+    /home/git/.gitolite
+chmod 775 \
+    /home/git/repositories \
+    /home/git/.gitolite
 
-su - git -c "./bin/gitolite setup -pk admin.pub"
+if [[ -d /home/git/repositories/gitolite-admin.git ]]; then
+    su - git -c "./bin/gitolite setup"
+else
+    su - git -c "./bin/gitolite setup -pk admin.pub"
+fi
 
-rm /home/git/admin.pub
+rm admin.pub
 
 /usr/sbin/sshd -D -e

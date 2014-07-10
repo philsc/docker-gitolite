@@ -12,6 +12,7 @@ readonly MOUNT_DIR=/home/git
 readonly EXPORTED_PORT=46000
 
 mkdir -p ${BASE_DIR}/repositories/
+mkdir -p ${BASE_DIR}/settings/
 chown root:root ${BASE_DIR}
 chmod 770 ${BASE_DIR}
 
@@ -19,4 +20,5 @@ docker run \
     -d \
     -p "${EXPORTED_PORT}:22" \
     -v "${BASE_DIR}/repositories:${MOUNT_DIR}/repositories" \
+    -v "${BASE_DIR}/settings:${MOUNT_DIR}/.gitolite" \
     gitolite

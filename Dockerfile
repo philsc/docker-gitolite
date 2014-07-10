@@ -12,7 +12,7 @@ ADD sshd_config /etc/ssh/sshd_config
 
 RUN adduser --system --group --shell /bin/sh git
 ADD id_rsa.pub /home/git/admin.pub
-VOLUME ["/home/git/repositories"]
+VOLUME ["/home/git/repositories", "/home/git/.gitolite"]
 
 RUN su - git -c "mkdir bin"
 RUN su - git -c "git clone git://github.com/sitaramc/gitolite"
