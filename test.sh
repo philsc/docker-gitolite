@@ -49,7 +49,7 @@ popd
 
 # Login as every one of those generated users.
 for ii in {1..10}; do
-    ssh -i "${KEY_DIR}"/id_rsa_"${ii}".pub -p ${PORT} git@localhost
+    ssh -i "${KEY_DIR}"/id_rsa_"${ii}" -p ${PORT} git@localhost
 done
 
 # Clean up
