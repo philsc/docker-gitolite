@@ -7,12 +7,14 @@ chmod 775 \
     /home/git/repositories \
     /home/git/.gitolite
 
+su - git -c "mkdir -p .gitolite/logs"
+
 if [[ -d /home/git/repositories/gitolite-admin.git ]]; then
     su - git -c "./bin/gitolite setup"
 else
     su - git -c "./bin/gitolite setup -pk admin.pub"
 fi
 
-rm admin.pub
+rm /home/git/admin.pub
 
 /usr/sbin/sshd -D -e
