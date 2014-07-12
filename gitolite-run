@@ -17,4 +17,4 @@ fi
 
 rm /home/git/admin.pub
 
-/usr/sbin/sshd -D -e
+exec /usr/sbin/sshd -D -e
