@@ -18,7 +18,7 @@ Docker container to run a gitolite instance.
 
         sudo ./docker-gitolite/run.sh
 
-1. Or install a startup script depending on your choice of init system.
+1. And install a startup script depending on your choice of init system.
 
         sudo ./docker-gitolite/install.sh upstart
         sudo ./docker-gitolite/install.sh systemd

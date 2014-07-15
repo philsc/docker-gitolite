@@ -17,6 +17,7 @@ chown root:root ${BASE_DIR}
 chmod 770 ${BASE_DIR}
 
 docker run \
+    --name gitolite \
     -d \
     -p "${EXPORTED_PORT}:22" \
     -v "${BASE_DIR}/repositories:${MOUNT_DIR}/repositories" \
