@@ -9,7 +9,7 @@ fi
 
 readonly BASE_DIR=/data/gitolite
 readonly MOUNT_DIR=/home/git
-readonly EXPORTED_PORT=46000
+readonly EXPORTED_PORT=800
 
 mkdir -p ${BASE_DIR}/repositories/
 mkdir -p ${BASE_DIR}/settings/
