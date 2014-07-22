@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM debian:wheezy
 MAINTAINER Philipp Schrader <philipp.schrader@gmail.com>
 
 RUN echo LANG=C >> /etc/profile
